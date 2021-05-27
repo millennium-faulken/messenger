@@ -54,7 +54,7 @@ textarea {
   border-radius: 5px;
 }
 
-button {
+.messageInput button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -163,6 +163,25 @@ h2 {
   border-radius: 5px;
 }
 
+.signIn {
+  padding: 5px 10px;
+  background-color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-right: 50px;
+  color: black;
+  text-decoration: none;
+}
+
+.signUp {
+  padding: 5px 10px;
+  background-color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-right: 5px;
+  color: black;
+  text-decoration: none;
+}
 
 .message_sent {
   text-align: right;
@@ -174,3 +193,31 @@ h2 {
   margin-left: 50px;
 }
 
+@media (max-width: 400px) {
+  .friendList {
+    width: 200px;
+  }
+
+  .friendPhoto img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .defaultPhoto {
+    width: 25px;
+    height: 25px;
+  }
+
+  .noPic {
+    width: 25px;
+    height: 25px;
+  }
+
+  .friendInfo h1 {
+    font-size: small;
+  }
+
+  .friendInfo h2 {
+    font-size: smaller;
+  }
+}

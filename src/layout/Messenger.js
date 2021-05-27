@@ -45,8 +45,8 @@ function Messenger() {
         const friend = receiver.uid;
         querySnapshot.forEach((doc) => {
           if (
-            (doc.data().sender == sender && doc.data().receiver == friend) ||
-            (doc.data().sender == friend && doc.data().receiver == sender)
+            (doc.data().sender === sender && doc.data().receiver === friend) ||
+            (doc.data().sender === friend && doc.data().receiver === sender)
           ) {
             chat.push(doc.data());
           }

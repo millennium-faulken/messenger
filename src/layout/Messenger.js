@@ -142,8 +142,8 @@ function Messenger() {
                   </div>
                 ) : (
                   <div className={`message_received`} ref={placeholder}>
-                    <p className="msg">{con.message}</p>
-                    <p className="timestamp">
+                    <p className="msg_received">{con.message}</p>
+                    <p className="timestamp_received">
                       {con.createdAt &&
                         moment(con.createdAt.toDate()).calendar()}
                     </p>
@@ -152,7 +152,6 @@ function Messenger() {
               </div>
             );
           })}
-          {/* <span ref={placeholder}></span> */}
         </div>
         <div className="messageInput">
           <textarea

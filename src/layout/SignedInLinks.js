@@ -7,9 +7,9 @@ const ref = firebase.firestore();
 
 const logOut = (uid) => {
   firebase.auth().signOut();
-  ref.collection("users").doc(uid).update({
-    isOnline: false,
-  });
+  // ref.collection("users").doc(uid).update({
+  //   isOnline: false,
+  // });
 };
 
 const SignedInLinks = () => {

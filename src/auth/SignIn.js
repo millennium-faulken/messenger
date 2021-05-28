@@ -5,6 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import firebase from "../firebase.js";
 
 const auth = firebase.auth();
+const ref = firebase.firestore();
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -15,7 +16,12 @@ const SignIn = () => {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(() => {})
+      .then((data) => {
+        console.log(data);
+        ref.collection("users").doc(data.user.uid).update({
+          isOnline: true,
+        });
+      })
       .catch((err) => {
         setError(err);
       });
@@ -29,7 +35,7 @@ const SignIn = () => {
   const { currentUser } = useContext(AuthContext);
   const currentUserId = currentUser ? currentUser.uid : null;
 
-  if (currentUserId) return <Redirect to="/home" />;
+  if (currentUserId) return <Redirect to="/" />;
 
   return (
     <div className="mainLogin">

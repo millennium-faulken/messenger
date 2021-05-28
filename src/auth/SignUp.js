@@ -38,7 +38,7 @@ const SignUp = () => {
   const { currentUser } = useContext(AuthContext);
   const currentUserId = currentUser ? currentUser.uid : null;
 
-  if (currentUserId) return <Redirect to="/home" />;
+  if (currentUserId) return <Redirect to="/" />;
 
   console.log(auth.currentUser);
 

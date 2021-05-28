@@ -1,12 +1,9 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../auth/Auth";
 import SignedInLinks from "./SignedInLinks";
-import firebase from "../firebase";
 import { BiMessageRoundedError } from "react-icons/bi";
 import SignedOutLinks from "./SignedOutLinks";
 import "./layout.css";
-
-const auth = firebase.auth();
 
 const Nav = () => {
   const { currentUser } = useContext(AuthContext);

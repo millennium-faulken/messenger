@@ -5,13 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  min-height: 100vh;
-  background-size: 100%;
-  background-position: bottom;
+  height: 100%;
 }
 
 html {
-  min-height: 100vh;
+  height: 100%;
 }
 
 code {

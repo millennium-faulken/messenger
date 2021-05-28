@@ -142,8 +142,8 @@ function Messenger() {
                   </div>
                 ) : (
                   <div className={`message_received`} ref={placeholder}>
-                    <p className="msg_received">{con.message}</p>
-                    <p className="timestamp_received">
+                    <p className="msg">{con.message}</p>
+                    <p className="timestamp">
                       {con.createdAt &&
                         moment(con.createdAt.toDate()).calendar()}
                     </p>

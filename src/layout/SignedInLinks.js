@@ -4,15 +4,21 @@ import firebase from "../firebase";
 import "./layout.css";
 
 const ref = firebase.firestore();
+const auth = firebase.auth();
 
-const logOut = (uid) => {
-  firebase.auth().signOut();
-  // ref.collection("users").doc(uid).update({
-  //   isOnline: false,
-  // });
-};
+function SignedInLinks() {
+  const logOut = () => {
+    ref
+      .collection("users")
+      .doc(auth.currentUser.uid)
+      .update({
+        isOnline: false,
+      })
+      .then(() => {
+        auth.signOut();
+      });
+  };
 
-const SignedInLinks = () => {
   return (
     <div className="signedIn">
       <NavLink to="/home" className="signOut" onClick={logOut}>
@@ -20,6 +26,6 @@ const SignedInLinks = () => {
       </NavLink>
     </div>
   );
-};
+}
 
 export default SignedInLinks;

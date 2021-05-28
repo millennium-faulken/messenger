@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import firebase from "../firebase.js";
 import { AuthContext } from "./Auth.js";
+import { FcGoogle } from "react-icons/fc";
 
 const ref = firebase.firestore();
 const auth = firebase.auth();
@@ -35,12 +36,30 @@ const SignUp = () => {
       });
   };
 
+  const signUpWithGoogle = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider).then((data) => {
+      ref
+        .collection("users")
+        .doc(data.user.uid)
+        .set({
+          firstName: data.additionalUserInfo.profile.given_name,
+          lastName: data.additionalUserInfo.profile.family_name,
+          uid: data.user.uid,
+          initials:
+            data.additionalUserInfo.profile.given_name[0] +
+            data.additionalUserInfo.profile.family_name[0],
+          photoURL: data.additionalUserInfo.profile.picture,
+          isOnline: true,
+          createdAt: new Date(),
+        });
+    });
+  };
+
   const { currentUser } = useContext(AuthContext);
   const currentUserId = currentUser ? currentUser.uid : null;
 
   if (currentUserId) return <Redirect to="/" />;
-
-  console.log(auth.currentUser);
 
   return (
     <div className="mainLogin">
@@ -73,6 +92,12 @@ const SignUp = () => {
         <button onClick={signUp}>Sign Up</button>
         {error.message ? <p className="errorMessage">{error.message}</p> : null}
       </div>
+      <button onClick={signUpWithGoogle} className="googleButton">
+        <div className="google">
+          <FcGoogle />
+        </div>
+        <p>Sign up with Google</p>
+      </button>
     </div>
   );
 };

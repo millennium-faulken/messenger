@@ -231,15 +231,19 @@ h2 {
 
 .message_sent {
   text-align: right;
-  margin-right: 50px;
+  margin-right: 10px;
 }
 
 .message_received {
   text-align: left;
-  margin-left: 50px;
+  margin-left: 10px;
 }
 
 @media (max-width: 400px) {
+.chatHeader {
+  font-size: small;
+}
+
   .friendList {
     width: 200px;
   }

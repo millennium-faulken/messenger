@@ -17,7 +17,6 @@ const SignIn = () => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then((data) => {
-        console.log(data);
         ref.collection("users").doc(data.user.uid).update({
           isOnline: true,
         });

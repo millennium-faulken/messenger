@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import { AuthContext } from "../auth/Auth";
 import { FcGoogle } from "react-icons/fc";
 import firebase from "../firebase.js";
+import "./auth.css";
 
 const auth = firebase.auth();
 const ref = firebase.firestore();
@@ -38,8 +39,16 @@ const SignIn = () => {
 
   return (
     <div className="mainLogin">
-      <h3>Login</h3>
+      <h1>Login</h1>
+      <button onClick={signInWithGoogle} className="googleButton">
+        <div className="google">
+          <FcGoogle />
+        </div>
+        <p>Sign in with Google</p>
+      </button>
+      <h3>- OR -</h3>
       <div className="inputBox">
+        <h4>Sign in with email:</h4>
         <input
           type="email"
           value={email}
@@ -53,14 +62,8 @@ const SignIn = () => {
           placeholder="Password"
         />
         <button onClick={login}>Login</button>
-        {error.message ? <p className="errorMessage">{error.message}</p> : null}
       </div>
-      <button onClick={signInWithGoogle} className="googleButton">
-        <div className="google">
-          <FcGoogle />
-        </div>
-        <p>Sign in with Google</p>
-      </button>
+      {error.message ? <p className="errorMessage">{error.message} Please try again.</p> : null}
     </div>
   );
 };

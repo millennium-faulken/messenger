@@ -21,7 +21,7 @@ function SignedInLinks() {
 
   return (
     <div className="signedIn">
-      <NavLink to="/home" className="signOut" onClick={logOut}>
+      <NavLink to="/signin" className="signOut" onClick={logOut}>
         Log Out
       </NavLink>
     </div>

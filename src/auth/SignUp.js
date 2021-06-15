@@ -63,8 +63,16 @@ const SignUp = () => {
 
   return (
     <div className="mainLogin">
+      <h1>Sign Up</h1>
+      <button onClick={signUpWithGoogle} className="googleButton">
+        <div className="google">
+          <FcGoogle />
+        </div>
+        <p>Sign up with Google</p>
+      </button>
+      <h3>- OR -</h3>
       <div className="inputBox">
-        <h3>Sign Up</h3>
+        <h4>Sign up with email:</h4>
         <input
           type="text"
           value={firstName}
@@ -92,12 +100,6 @@ const SignUp = () => {
         <button onClick={signUp}>Sign Up</button>
         {error.message ? <p className="errorMessage">{error.message}</p> : null}
       </div>
-      <button onClick={signUpWithGoogle} className="googleButton">
-        <div className="google">
-          <FcGoogle />
-        </div>
-        <p>Sign up with Google</p>
-      </button>
     </div>
   );
 };

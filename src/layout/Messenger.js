@@ -76,7 +76,7 @@ function Messenger() {
       createdAt: new Date(),
     });
     setMessage("");
-    placeholder.current.scrollIntoView({ behavior: "smooth" });
+    // placeholder.current.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -133,7 +133,7 @@ function Messenger() {
             return (
               <div key={uuidv4()}>
                 {con.sender === sender ? (
-                  <div className={`message_sent`} ref={placeholder}>
+                  <div className={`message_sent`}>
                     <p className="msg">{con.message}</p>
                     <p className="timestamp">
                       {con.createdAt &&
@@ -141,7 +141,7 @@ function Messenger() {
                     </p>
                   </div>
                 ) : (
-                  <div className={`message_received`} ref={placeholder}>
+                  <div className={`message_received`}>
                     <p className="msg">{con.message}</p>
                     <p className="timestamp">
                       {con.createdAt &&

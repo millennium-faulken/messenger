@@ -1,0 +1,53 @@
+.mainLogin {
+  width: 375px;
+  min-height: 325px;
+  margin: 15vh auto;
+  text-align: center;
+  background-color: #ffffff65;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.mainLogin h1 {
+  margin-bottom: 15px;
+  margin-top: 0;
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputBox h4 {
+  margin: 0 0 10px 0;
+}
+
+.inputBox input {
+  margin: 0 auto 10px auto;
+  width: 50%;
+  padding: 5px 10px;
+  background-color: white;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.inputBox button {
+  margin: 0 auto 10px auto;
+  padding: 5px 10px;
+  background-color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  color: black;
+  text-decoration: none;
+}
+
+.googleButton {
+  margin: auto;
+}
+
+.errorMessage {
+  color: red;
+  margin: 0;
+  font-size: small;
+}

@@ -17,14 +17,14 @@ const SignUp = () => {
   const signUp = () => {
     auth
       .createUserWithEmailAndPassword(email, password)
-      .then((cred) => {
+      .then((data) => {
         ref
           .collection("users")
-          .doc(cred.user.uid)
+          .doc(data.user.uid)
           .set({
             firstName,
             lastName,
-            uid: cred.user.uid,
+            uid: data.user.uid,
             initials: firstName[0] + lastName[0],
             photoURL: null,
             isOnline: true,
